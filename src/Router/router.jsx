@@ -1,19 +1,20 @@
-import { Route, Routes } from "react-router-dom";
-import Home from "../Pages/Home";
+import { Route, Routes, useLocation } from "react-router-dom";
+import ChatDasb from "../Components/Chat/chat";
+import Home from "../Pages/Home/index";
+import Nav from "../Components/Nav/nav";
+import NotFound from "../Pages/NotFoun/NotFound";
 
 const Root = () => {
+  const location = useLocation();
+  const isLoginPage = location.pathname === '/login';
   return (
     <Routes>
+      {!isLoginPage && <Route path="/chat" element={<Nav />} />}
       <Route path="/" element={<Home />} />
+      <Route path="/chat" element={<ChatDasb />} />
       <Route 
         path="*" 
-        element={
-          <div className="grid h-screen place-content-center bg-white px-4">
-            <h1 className="uppercase tracking-widest text-gray-500">
-              404 | Not Found
-            </h1>
-          </div>
-        } 
+        element={<NotFound />} 
       />
     </Routes>
   );

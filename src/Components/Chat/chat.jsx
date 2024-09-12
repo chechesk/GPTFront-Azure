@@ -21,7 +21,7 @@ export default function Chat() {
   }, []);
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen overflow-hidden p-8 ml-44">
       {/* Sidebar */}
    {/* 
       <div className="w-1/4 bg-white border-r border-gray-300">
