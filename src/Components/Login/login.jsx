@@ -15,15 +15,16 @@ export default function Login() {
     // Despacha la acción de login con el email y password
     dispatch(login({ email, password }))
       .unwrap() // Si usas `createAsyncThunk`, esto manejará promesas
-      .then(() => {
+      .then((response) => {
         // Si la autenticación es exitosa, navega a la página de chat
+        sessionStorage.setItem("token", response.token); // Asegúrate que el token esté en response.token
         navigate('/chat');
       })
       .catch((error) => {
         console.error("Error de autenticación:", error);
       });
   };
-
+  
   const responseMessage = (response) => {
     console.log(response);
   };

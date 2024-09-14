@@ -9,7 +9,7 @@ const Root = () => {
   const isLoginPage = location.pathname === '/login';
   return (
     <Routes>
-      {!isLoginPage && <Route path="/chat" element={<Nav />} />}
+      {/* {!isLoginPage && <Route path="/chat" element={<Nav />} />} */}
       <Route path="/" element={<Home />} />
       <Route path="/chat" element={<ChatDasb />} />
       <Route 
