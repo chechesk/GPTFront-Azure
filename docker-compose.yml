@@ -1,12 +1,9 @@
-version: '3.4'
+# version: '3'
 
 services:
-  gptazurefron:
-    image: gptazurefron
-    build:
-      context: .
-      dockerfile: ./Dockerfile
-    environment:
-      NODE_ENV: production
+  azureai:
+    container_name: azureai
+    restart: always
+    build: ./
     ports:
-      - 30
+      - "8081:8081"
