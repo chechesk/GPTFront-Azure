@@ -1,6 +1,5 @@
 # version: '3'
 
-services:
   azureai:
     container_name: azureai
     restart: always
