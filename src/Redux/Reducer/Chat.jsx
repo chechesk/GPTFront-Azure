@@ -10,7 +10,7 @@ export const CreateChat = createAsyncThunk('chat/createChat', async (data) => {
     }
   
     try {
-      const response = await axios.post('http://4.227.183.32:3400/', 
+      const response = await axios.post('http://20.121.59.247:3400/', 
         { message: data.message }, // Envia el mensaje en el cuerpo de la solicitud
         {
           headers: {
@@ -30,7 +30,7 @@ export const UpdateChat = createAsyncThunk('chat/updateChat', async (updateData,
     const token = sessionStorage.getItem('token'); // Recupera el token de sessionStorage
   
     try {
-      const response = await axios.put('http://4.227.183.32:3400/', updateData, {
+      const response = await axios.put('http://20.121.59.247:3400/', updateData, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': token
