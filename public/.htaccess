@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Redirigir www a la versión sin www y forzar HTTPS
+  RewriteCond %{HTTP_HOST} ^www\gpt\.gruporf\.cl$ [OR]
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://gpt.gruporf.cl/$1 [R=301,L]
+
+  # Asegurarse de no redirigir recursos estáticos
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^.*$ /index.html [L]
+</IfModule>
